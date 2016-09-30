@@ -37,7 +37,7 @@
 -%>
 
 <script type="text/javascript">//<![CDATA[
-    XHR.poll(5, '<%=url('admin/services/kcptun/info')%>', null,
+    XHR.poll(5, '<%=luci.dispatcher.build_url("admin", "services", "kcptun", "info")%>', null,
         function(x, info)
         {
             var client_status_tb = document.getElementById('kcptun_client_status');
@@ -96,7 +96,7 @@
         btn.disabled = true;
         btn.value    = '<%:Processing...%>';
 
-        (new XHR()).post('<%=url('admin/services/kcptun/clear_log')%>/' + id, { token: '<%=token%>' },
+        XHR.get('<%=luci.dispatcher.build_url("admin", "services", "kcptun", "clear_log")%>/' + id, null,
             function(x)
             {
                 btn.disabled = false;

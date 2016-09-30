@@ -38,7 +38,7 @@ function index()
 
     entry({"admin", "services", "kcptun", "info"}, call("kcptun_info"))
 
-    entry({"admin", "services", "kcptun", "clear_log"}, post("action_clear_log")).leaf = true
+    entry({"admin", "services", "kcptun", "clear_log"}, call("action_clear_log")).leaf = true
 end
 
 function kcptun_info()
